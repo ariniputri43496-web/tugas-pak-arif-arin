@@ -1,0 +1,372 @@
+TUGAS PA ARIF 
+
+Ringkasan Materi: Konsep Perulangan Bahasa PHP
+A. Pengertian, Manfaat, dan Kapan Perulangan Digunakan
+Perulangan (Looping) adalah struktur kontrol logika dalam pemrograman yang berfungsi untuk mengeksekusi satu blok
+perintah (kode) secara berulang-ulang selama suatu kondisi evaluasi bernilai benar (TRUE).
+
+Manfaat Utama Perulangan:
+1. Efisiensi Kode (Concise & DRY): Mengurangi ribuan baris perintah menjadi hanya 3–5 baris kode yang elegan.
+2. Kemudahan Perawatan (Maintainability): Jika format tampilan output perlu diubah, cukup edit satu baris di dalam blok
+perulangan.
+3. Dinamis & Adaptif: Mampu memproses jumlah data yang tidak diketahui jumlah pastinya secara otomatis (misalnya
+data hasil query database).
+
+Kapan Perulangan Digunakan? Gunakan perulangan ketika Anda perlu: 
+(1). Menampilkan deret bilangan atau urutan
+alfabet; 
+(2).Memproses dan merender isi data dari Array atau hasil query database;
+(3). Mengulang suatu proses validasi
+hingga input pengguna benar;
+(4) Menghasilkan elemen UI web berulang seperti opsi dropdown (<option>), baris tabel
+(<tr>), atau kartu produk.
+
+B. Jenis-Jenis Perulangan dalam PHP
+Bahasa pemrograman PHP menyediakan 4 jenis utama struktur perulangan, yaitu: for, while, do-while, dan foreach.
+Mari kita bedah satu per satu secara mendalam.
+
+1. Perulangan for (Counted Loop)
+Perulangan for digunakan apabila jumlah pengulangan sudah diketahui dengan pasti sejak awal (definite/counted loop).
+
+Sintaks Dasar:
+
+<?php
+for (inisialisasi; kondisi; increment/decrement) {
+    // Blok kode yang akan diulang
+}
+?>
+    
+1. Inisialisasi ($i = 1): Dieksekusi hanya satu kali di awal sebelum perulangan dimulai. Berfungsi menentukan nilai awal
+variabel penghitung (counter).
+
+2. Kondisi ($i <= 5): Dievaluasi sebelum setiap putaran. Jika bernilai TRUE, blok kode dijalankan. Jika FALSE, perulangan
+berhenti seketika.
+
+3. Increment / Decrement ($i++ atau $i--): Dieksekusi setiap akhir satu putaran. Berfungsi mengubah nilai variabel
+counter agar suatu saat kondisi menjadi FALSE.
+
+Contoh kode :
+<?php
+// Contoh perulangan FOR mencetak urutan angka
+for ($i = 1; $i <= 5; $i++) {
+    echo "Putaran ke-" . $i . "<br>";
+}
+?>
+Baris Kode
+for ($i = 1; ...
+... $i <= 5; ...
+... $i++) {
+echo "Putaran ke-" . $i
+. "<br>";
+}
+
+Hasil Output:
+Putaran ke-1
+Putaran ke-2
+Putaran ke-3
+Putaran ke-4
+Putaran ke-5
+    
+
+2. Perulangan while (Uncounted Loop)
+Perulangan while digunakan saat jumlah putaran belum diketahui dengan pasti, dan perulangan harus terus berjalan
+selama suatu syarat/kondisi terpenuhi (uncounted loop). Evaluasi kondisi dilakukan di awal (pre-test).
+
+Sintaks Dasar:
+
+<?php
+// Inisialisasi counter di luar loop
+$i = 1;
+while (kondisi_pengecekan) {
+    // Blok perintah dieksekusi selama kondisi TRUE
+    // Jangan lupa mengubah nilai counter di dalam blok agar tidak Infinite Loop!
+    $i++;
+}
+?>
+Cara Kerja while: Pada saat pointer program sampai pada perintah while, PHP akan memeriksa kondisi terlebih dahulu.
+Jika saat pemeriksaan pertama kondisi sudah bernilai FALSE, maka blok kode di dalamnya sama sekali tidak akan pernah dieksekusi (0 kali putaran).
+
+Contoh Kode & Analisis:
+<?php
+$stok_barang = 3;
+while ($stok_barang > 0) {
+    echo "Barang tersedia! Stok saat ini: " . $stok_barang . "<br>";
+    $stok_barang--; // Decrement: kurangi stok 1 per satu
+}
+echo "Stok habis!";
+?>
+
+Hasil Output:
+Barang tersedia! Stok saat ini: 3
+Barang tersedia! Stok saat ini: 2
+Barang tersedia! Stok saat ini: 1
+Stok habis!
+
+Analisis Logika: Pada awal eksekusi, $stok_barang = 3 (lebih dari 0, TRUE -> cetak dan kurangi stok menjadi 2). Proses
+diulang hingga stok bernilai 0.Saat kondisi 0 > 0 diuji (FALSE), loop berhenti dan menjalankan perintah di luar loop (echo
+"Stok habis!").
+
+
+3. Perulangan do-while (Post-test Loop)
+Perulangan do-while adalah kebalikan dari while. Pada do-while, blok kode program dieksekusi terlebih dahulu
+minimal 1 KALI, baru kemudian evaluasi kondisi pengujian dilakukan di akhir (post-test).
+
+Sintaks Dasar:
+<?php
+$i = 1;
+do {
+    // Perintah ini PASTI dieksekusi minimal satu kali!
+    // Increment/decrement
+    $i++;
+} while (kondisi_pengujian);
+?>
+Karakteristik & Perbedaan Utama dengan while:
+
+1. Pada perulangan while (Pre-test): Jika syarat dari awal bernilai FALSE, kode didalamnya dieksekusi 0 kali.
+
+2. Pada perulangan do-while (Post-test): Meskipun syarat sejak awal sudah FALSE, kode di dalam blok do dieksekusi
+minimal 1 kali karena pengecekan berada di bawah.
+
+Contoh Kode & Analisis:
+<?php
+// Contoh kasus kondisi awal langsung salah (FALSE)
+$angka = 100;
+do {
+    echo "Eksekusi DO-WHILE: Angka adalah " . $angka . "<br>";
+    $angka++;
+} while ($angka <= 5); // Kondisi 101 <= 5 adalah FALSE!
+?>
+
+Hasil Output:
+
+Eksekusi DO-WHILE: Angka adalah 100
+Analisis: Walaupun nilai $angka adalah 100 (tidak memenuhi syarat <= 5), perintah echo di dalam blok do tetap dijalankan
+satu kali. Setelah itu, pada pengecekan while ($angka <= 5) bernilai FALSE, dan perulangan dihentikan.
+
+
+4. Perulangan foreach (Array Traversal Loop)
+Perulangan foreach dirancang secara khusus untuk mempermudah navigasi dan pengambilan elemen-elemen di dalam
+struktur data Array atau Object tanpa perlu menghitung total indeks array secara manual.
+Konsep Key dan Value pada Array PHP:
+Array Numerik: Array dengan indeks otomatis berurutan dari angka 0, 1, 2, dst.
+Array Asosiatif: Array yang menggunakan nama kunci (Key / String Index) khusus untuk melabeli setiap nilai (Value).
+
+Sintaks Dasar:
+<?php
+// 1. Sintaks untuk mengambil Nilai (Value) saja:
+foreach ($nama_array as $value) {
+    // $value berisi elemen array pada iterasi saat ini
+
+}
+// 2. Sintaks untuk mengambil Kunci (Key) sekaligus Nilai (Value):
+foreach ($nama_array as $key => $value) {
+    // $key berisi indeks/kunci, $value berisi nilainya
+}
+?>
+
+A. Contoh 1: Array Numerik (Daftar Nama Bahasa Pemrograman)
+
+<?php
+$bahasa = ["PHP", "JavaScript", "Python", "Java"];
+echo "<h4>Daftar Bahasa Pemrograman:</h4>";
+echo "<ul>";
+foreach ($bahasa as $item) {
+    echo "<li>" . $item . "</li>";
+}
+echo "</ul>";
+?>
+
+Hasil Output:
+
+Daftar Bahasa Pemrograman:
+• PHP
+• JavaScript
+• Python
+• Java
+
+B. Contoh 2: Array Asosiatif (Data Spesifikasi Laptop)
+
+<?php
+$laptop = [
+    "Merk"     => "ASUS Zenbook",
+    "Prosesor" => "Intel Core i7",
+    "RAM"      => "16 GB DDR5",
+    "Storage"  => "512 GB NVMe SSD"
+];
+echo "<strong>Spesifikasi Perangkat:</strong><br>";
+foreach ($laptop as $spesifikasi => $detail) {
+    echo $spesifikasi . " : " . $detail . "<br>";
+}
+?>
+
+Hasil Output:
+
+Spesifikasi Perangkat:
+Merk : ASUS Zenbook
+Prosesor : Intel Core i7
+RAM : 16 GB DDR5
+Storage : 512 GB NVMe SSD
+
+
+6. Tabel Perbandingan 4 Jenis Perulangan PHP
+
+Untuk membantu kamu memilih struktur perulangan yang paling tepat saat merancang program, pelajari tabel analisis
+perbandingan mendalam berikut ini:
+
+Jenis Loop : 
+for(Counted)
+
+Kondisi Penggunaan :
+Saat jumlah iterasi sudah diketahui secara
+jelas dan matematis
+
+Kelebihan Utama :
+Sangat ringkas; inisialisasi, syarat, dan
+increment berada dalam
+1 baris jelas.
+
+Kekurangan /Kelemahan :
+Kurang praktis jika d
+
+Contoh Kasus Khas industri :
+Menghitung nomor
+antrean 1–100, membuat
+deret bilangan matematis,
+tabel perkalian.
+
+Jenis loop :
+While (Uncounted Pre-test)
+
+Kondisi penggunaan :  
+Saat jumlah iterasi
+belum pasti dan
+bergantung pada kondisi
+eksternal (pengecekan
+di awal).
+
+Kelebihan Utama :
+Sangat fleksibel untuk
+kondisi tidak bertipe
+angka standar. Logika
+aman dari eksekusi
+salah.
+
+Kekurangan/Kelebihan :
+Rawan terjadi
+Infinite Loop jika
+programmer lupa
+menuliskan
+statement
+increment di dalam
+blok.
+
+Contoh kasus khas industri :
+Membaca baris data dari
+hasil query database
+MySQL, memvalidasi sesi
+login secara berkala.
+
+Jenis loop : 
+Do-while (Uncounted
+Post-test)
+
+Kondisi penggunaan :
+Saat program harus dijalankan minimal 1
+kali tanpa mempedulikan kondisi awal benar atau salah 
+
+Kelebihan Utama :
+Menjamin blok kode program dieksekusi
+minimal satu kali sebelum validasi kondisi
+
+Kekurangan/Kelebihan :
+Bisa mengeksekusi proses yang tidak
+diinginkan jika kondisi awal sebenarnya dilarang
+
+Contoh kasus khas industri :
+Menampilkan menurut interaktif utama pada
+mesin ATM atau aplikasi
+CLI minimal satu kali.
+
+Jenis loop :
+foreach
+(Array /
+Iterable)
+
+Kondisi pengunaan 
+Saat memproses atau
+mengurai struktur data
+Array dan Object /
+Collection.
+
+Kelebihan Utama 
+Sangat aman, tidak
+mungkin terjadi out-of-
+bounds error. Sintaks
+paling bersih dan intuitif.
+
+Kelebihan/kekurangan 
+Hanya bisa
+digunakan pada
+tipe data
+Array/Object (tidak
+bisa untuk
+perulangan deret
+angka biasa tanpa
+array).
+
+Contoh kasus khas industri 
+Menampilkan daftar
+produk e-commerce dari
+database, merender tabel
+nilai siswa, membaca
+JSON AP
+
+7. Demonstrasi: 6 Contoh Program Sederhana
+Pelajari 6 program demonstrasi berikut. Amati struktur kode, penjelasan baris, dan output yang dihasilkan sebelum Anda
+mengerjakan bagian Praktikum:
+A. Demonstrasi 1: Mencetak Angka 1–10
+Tujuan: Memahami dasar penggunaan perulangan for untuk mencetak urutan bilangan menaik (increment).
+<?php
+// Demonstrasi 1: Angka 1 sampai 10
+echo "<h4>Deret Angka 1 - 10:</h4>";
+for ($i = 1; $i <= 10; $i++) {
+    echo $i . " ";
+}
+?>
+ Baris kode
+for ($i = 1; ...
+... $i <= 10; ...
+... $i++) {
+echo $i . " ";
+Hasil output :
+Deret Angka 1 - 10:
+1 2 3 4 5 6 7 8 9 10 
+
+B. Demonstrasi 2: Bilangan Genap (2–20)
+Tujuan: Menggabungkan perulangan dengan operasi increment kelipatan ($i += 2) untuk menghasilkan bilangan genap.
+<?php
+// Demonstrasi 2: Bilangan Genap antara 1 hingga 20
+echo "<h4>Deret Bilangan Genap (2 - 20):</h4>";
+for ($i = 2; $i <= 20; $i += 2) {
+    echo $i . " - ";
+}
+?>
+
+Baris Kode
+Mulai perulangan dari angka 2 (bilangan genap pertama positif).
+for ($i = 2; ...
+Operator penugasan $i += 2 artinya nilai $i = $i + 2. Nilai meloncat kelipatan 2 (2,
+... $i += 2) {
+4, 6 ... 20).
+Output:
+Deret Bilangan Genap (2 - 20):
+2 - 4 - 6 - 8 - 10 - 12 - 14 - 16 - 18 - 20 - 
+
+
+
+
+
+
+
+
+

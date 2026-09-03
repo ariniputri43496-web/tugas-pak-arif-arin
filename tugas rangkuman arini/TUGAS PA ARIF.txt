@@ -1,0 +1,251 @@
+TUGAS PA ARIF part 2
+
+C. Demonstrasi 3: Bilangan Ganjil (1–19) dengan Modulus
+Tujuan: Menggunakan kombinasi perulangan for dengan percabangan if dan operator modulus (%) untuk menyaring
+bilangan ganjil.
+<?php
+// Demonstrasi 3: Bilangan Ganjil menggunakan Modulus
+echo "<h4>Deret Bilangan Ganjil (1 - 19):</h4>";
+for ($i = 1; $i <= 20; $i++) {
+    if ($i % 2 == 1) { // Jika sisa bagi dengan 2 adalah 1 (Ganjil)
+        echo $i . " ";
+    }
+}
+?>
+
+Baris Kode
+ if($i % 2 == 1) {
+Output:
+Deret Bilangan Ganjil (1 - 19):
+1 3 5 7 9 11 13 15 17 19 
+
+ D. Demonstrasi 4: Tabel Perkalian Angka 5
+
+Tujuan: Mengimplementasikan perulangan untuk melakukan kalkulasi operasi matematika aritmatika berulang.
+
+<?php
+
+//Demonstrasi 4: Tabel Perkalian Angka 5
+
+echo "Ch4>Tabel Ferkalian 5:</h4>";
+
+Sangka 5:
+
+for (i=1, 6110 +3
+
+Shasil Sangka
+
+echo Sangka.51. Shasil. "<br>";
+
+?>
+
+Baris Kode
+
+Penjelasan Logika Baris per Baris
+
+Shasil $angka $i;
+
+$i
+
+Setiap putaran, hitung perkalian variabel tetap $angka (5) dikali dengan variabel counter $1 yang terus naik (1 sampai 10).
+
+echo $angka
+
+Menampilkan format keluaran perkalian standar agar mudah dibaca pengguna.
+
+Output:
+
+Tabel Perkalian 5:
+
+5 * 1 = 5
+
+5 * 2 = 10
+
+5 * 3 = 15
+
+5 * 4 = 20
+
+5 * 5 = 25
+
+5 * 6 = 30
+
+35
+
+5 x 9 45
+
+40
+
+5 x 1050
+
+E. Demonstrasi 5: Segitiga Bintang Siku-Siku (Nested Loop)
+
+Tujuan: Memahami logika kerja Nested Loop (perulangan di dalam perulangan) untuk membuat pola visual dua dimensi (baris dan kolom).
+
+<php
+
+// Demonstrasi 5: Segitiga Bintang Siku-Siku
+
+echo "<h4>Pola Segitiga Bintang:</h4>";
+
+for (Sbaris 1, Sbaris 5, Obari++) (
+
+for (Skolom 1: Skolon Sbaris: školom++) (
+
+echo
+
+echo "<br> // Pindah ke baris baru setiap selesai 1 baris kolom
+
+Baris Kode
+
+for ($baris = 1;
+for ($kolom = 1; $kolom <=
+$baris; ...
+echo "<br>";
+"<br>";
+Output:
+Pola Segitiga Bintang:
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+for ($j = 1; $j <= 5; $j++)
+LKPD BERBASIS DEEP LEARNING & KURIKULUM MERDEKA
+Output:
+Pola Persegi Bintang 5x5:
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+8. Praktik 1: Membuat Program Menampilkan Angka 1–100
+Tujuan Praktikum: Peserta didik mampu mengonfigurasi web server lokal, menulis file PHP dengan struktur benar,
+menggunakan perulangan for untuk deret 1–100, dan menganalisis output di browser.
+Langkah Kerja Sangat Rinci (Step-by-Step):
+1Nyalakan Komputer: Tekan tombol power pada CPU/laptop dan tunggu hingga sistem operasi Windows siap.
+2Jalankan Web Server (XAMPP / Laragon):
+Setelah inner loop selesai mencetak bintang dalam satu baris, jalankan <br> untuk
+enter ke bawah.
+
+F.Demonstrasi 6: Persegi Bintang (5x5)
+Tujuan: Membuat kisi pola kotak matriks dengan batas kolom dan baris yang seragam menggunakan nested loop.
+<?php
+
+// Demonstrasi 6: Persegi Bintang 5x5
+echo "<h4>Pola Persegi Bintang 5x5:</h4>";
+for ($i = 1; $i <= 5; $i++) {       // Outer: 5 baris ke bawah
+    for ($j = 1; $j <= 5; $j++) {   // Inner: 5 bintang ke kanan
+        echo "* ";
+    }
+    echo "<br>";
+}
+
+Baris kode 
+For ($j = 1; $j <= 5; $j++
+
+Output:
+Pola Persegi Bintang 5x5:
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+
+8. Praktik 1: Membuat Program Menampilkan Angka 1–100
+Tujuan Praktikum: Peserta didik mampu mengonfigurasi web server lokal, menulis file PHP dengan struktur benar,
+menggunakan perulangan for untuk deret 1–100, dan menganalisis output di browser.
+
+Langkah Kerja Sangat Rinci (Step-by-Step):
+1. Nyalakan Komputer: Tekan tombol power pada CPU/laptop dan tunggu hingga sistem operasi Windows siap.
+
+2Jalankan Web Server (XAMPP / Laragon):
+
+ 3. Jika XAMPP: Buka aplikasi XAMPP Control Panel dari desktop atau Start Menu. Klik tombol Start pada
+modul Apache dan modul MySQL hingga indikator berwarna hijau.
+SMK KELAS XI RPL — PEMROGRAMAN WEB (PHP)
+Halaman 13 dari 32
+3
+12
+13
+14
+15
+16Tuliskan Hasil Pengamatan Anda:
+
+4. Jika Laragon: Buka aplikasi Laragon, klik tombol biru bertuliskan Start All.
+
+5. Verifikasi Server di Browser: Buka web browser (Chrome), klik address bar, ketik http://localhost lalu tekan
+
+6. Enter. Pastikan halaman selamat datang XAMPP/Laragon muncul tanpa pesan error.
+Pilih Folder Kerja Root:
+
+7. Di VS Code, klik menu File > Open Folder...
+
+8. Arahkan ke direktori root server: C:\xampp\htdocs\ (XAMPP) atau C:\laragon\www\ (Laragon).
+
+9. Buat Folder Proyek Baru: Klik ikon New Folder di panel kiri VS Code, beri nama folder dengan persis: latihan-loop,
+
+10.kemudian tekan Enter.Buat File PHP Baru: Klik folder latihan-loop yang baru dibuat, klik ikon New File, beri nama file: index.php.
+
+11.Ketik Source Code PHP: Ketikkan baris kode program berikut secara teliti pada file index.php:
+5
+6
+B
+u
+k
+a 
+C
+o
+d
+e 
+E
+dit
+o
+r
+:
+ 
+B
+u
+k
+a 
+a
+plikasi Visual Studio Code.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Praktik 1 - Angka 1-100</title>
+</head>
+<body>
+    <h2>Menampilkan Deret Angka 1 sampai 100</h2>
+    <p>
+    <?php
+    // Perulangan dari 1 hingga 100
+    for ($i = 1; $i <= 100; $i++) {
+        // Tampilkan angka dengan format kotak kecil atau koma
+        echo $i . ", ";
+    }
+    ?>
+    </p>
+</body>
+</html>
+
+1. Simpan Pekerjaan: Simpan file dengan menekan kombinasi tombol Ctrl + S di keyboard (atau menu File > Save).
+Pastikan tanda bulat putih pada tab file VS Code hilang.
+
+2. Jalankan Program di Web Browser: Buka kembali Google Chrome, ketikkan alamat URL berikut di address bar:
+http://localhost/latihan-loop/index.php lalu tekan Enter.
+
+3. Amati Output Program: Layar browser akan menampilkan angka dari 1, 2, 3, ... hingga 100 yang terpisah dengan
+tanda koma.
+ 
+4. Tuliskan hasil pengamatan anda
+
+Lembar Kerja Siswa - Catatan Pengamatan Praktik 1:
+
+1. Apakah angka 100 ikut tercetak di layar browser? Jelaskan mengapa demikian berdasarkan tanda relasional
+yang Anda gunakan pada kondisi $i <= 100!
+Jawaban: ....................................................................................................................................
+2. Apa yang akan terjadi jika Anda mengubah kondisi menjadi $i < 100 (tanpa tanda sama dengan)? Cobalah di
+editor Anda dan catat perubahannya!
+Jawaban: .......................................................................................................................
+
